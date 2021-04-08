@@ -12,9 +12,6 @@
                         <x:String>2</x:String>
                         <x:String>3</x:String>
                     </Picker.Items>
-                    <Picker.SelectedIndex>
-                        2
-                    </Picker.SelectedIndex>
                 </Picker>
 
                 <Label Text="項次" FontSize="Medium" />
@@ -27,50 +24,56 @@
                 <Entry Placeholder="盤體位置" FontSize="Medium" />
 
                 <Label Text="年份" FontSize="Medium" />
-                <DatePicker />
+                <Picker Title="年份" >
+                    <Picker.Items>
+                        <x:String>2019</x:String>
+                        <x:String>2020</x:String>
+                        <x:String>2021</x:String>
+                    </Picker.Items>
+                </Picker>
 
                 <Label Text="測量值" FontSize="Medium" />
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" >
                     <Label Text="週溫" FontSize="Medium" />
-                    <Entry Placeholder="週溫" FontSize="Medium" />
+                    <Entry Placeholder="週溫" FontSize="Medium" WidthRequest="60" />
                     <Label Text="R" FontSize="Medium" />
-                    <Entry Placeholder="R" FontSize="Medium" />
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="R" FontSize="Medium" WidthRequest="60" />
                     <Label Text="S" FontSize="Medium" />
-                    <Entry Placeholder="S" FontSize="Medium" Margin="0" />
+                    <Entry Placeholder="S" FontSize="Medium" WidthRequest="60" />
                     <Label Text="T" FontSize="Medium" />
-                    <Entry Placeholder="T" FontSize="Medium" Margin="0" />
+                    <Entry Placeholder="T" FontSize="Medium" WidthRequest="60" />
                 </StackLayout>
 
                 <Label Text="電流" FontSize="Medium" />
                 <StackLayout Orientation="Horizontal">
                     <Label Text="R" FontSize="Medium" />
-                    <Entry Placeholder="R" FontSize="Medium" />
+                    <Entry Placeholder="R" FontSize="Medium" WidthRequest="80" />
                     <Label Text="S" FontSize="Medium" />
-                    <Entry Placeholder="S" FontSize="Medium"  />
+                    <Entry Placeholder="S" FontSize="Medium" WidthRequest="80"  />
                     <Label Text="T" FontSize="Medium" />
-                    <Entry Placeholder="T" FontSize="Medium" />
+                    <Entry Placeholder="T" FontSize="Medium" WidthRequest="80" />
                 </StackLayout>
 
                 <Label Text="檢查結果" FontSize="Medium" />
                 <StackLayout Orientation="Horizontal" 
                              VerticalOptions="Center">
-                    <CheckBox Color="#0B1746"/>
+                    <CheckBox Color="{StaticResource Primary}"/>
                     <Label Text="良好"
                            FontSize="16"/>
-                    <CheckBox Color="#0B1746"/>
+                    <CheckBox Color="{StaticResource Primary}"/>
                     <Label Text="異常"
                            FontSize="16"/>
                 </StackLayout>
 
                 <Label Text="檢查日期" FontSize="Medium" />
-                <DatePicker />
+                <DatePicker>
+                    <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                </DatePicker>
 
                 <Label Text="備註" FontSize="Medium" />
                 <Editor Placeholder="備註" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
 
-                <!--用command會比較好-->
+                <!--跳轉頁面用command會比較好-->
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Cancel" Clicked="canael_click" 
                         HorizontalOptions="FillAndExpand"
