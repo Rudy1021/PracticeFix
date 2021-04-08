@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeFix.CreatePage">
+    <ContentPage.Content>
+        <ScrollView Grid.Row="1">
+            <StackLayout Spacing="3" Padding="15">
+
+                <Picker Title="item" >
+                    <Picker.Items>
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>
+                        2
+                    </Picker.SelectedIndex>
+                </Picker>
+
+                <Label Text="項次" FontSize="Medium" />
+                <Entry Placeholder="項次" FontSize="Medium" />
+
+                <Label Text="電盤名稱" FontSize="Medium" />
+                <Entry Placeholder="電盤名稱" FontSize="Medium" />
+
+                <Label Text="盤體位置" FontSize="Medium" />
+                <Entry Placeholder="盤體位置" FontSize="Medium" />
+
+                <Label Text="年份" FontSize="Medium" />
+                <DatePicker />
+
+                <Label Text="測量值" FontSize="Medium" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="週溫" FontSize="Medium" />
+                    <Entry Placeholder="週溫" FontSize="Medium" />
+                    <Label Text="R" FontSize="Medium" />
+                    <Entry Placeholder="R" FontSize="Medium" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="S" FontSize="Medium" />
+                    <Entry Placeholder="S" FontSize="Medium" Margin="0" />
+                    <Label Text="T" FontSize="Medium" />
+                    <Entry Placeholder="T" FontSize="Medium" Margin="0" />
+                </StackLayout>
+
+                <Label Text="電流" FontSize="Medium" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="R" FontSize="Medium" />
+                    <Entry Placeholder="R" FontSize="Medium" />
+                    <Label Text="S" FontSize="Medium" />
+                    <Entry Placeholder="S" FontSize="Medium"  />
+                    <Label Text="T" FontSize="Medium" />
+                    <Entry Placeholder="T" FontSize="Medium" />
+                </StackLayout>
+
+                <Label Text="檢查結果" FontSize="Medium" />
+                <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="Center">
+                    <CheckBox Color="#0B1746"/>
+                    <Label Text="良好"
+                           FontSize="16"/>
+                    <CheckBox Color="#0B1746"/>
+                    <Label Text="異常"
+                           FontSize="16"/>
+                </StackLayout>
+
+                <Label Text="檢查日期" FontSize="Medium" />
+                <DatePicker />
+
+                <Label Text="備註" FontSize="Medium" />
+                <Editor Placeholder="備註" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+
+                <!--用command會比較好-->
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Cancel" Clicked="canael_click" 
+                        HorizontalOptions="FillAndExpand"
+                        CornerRadius="10"/>
+                    <Button Text="Save" Clicked="confirm_click" 
+                        HorizontalOptions="FillAndExpand"
+                        CornerRadius="10"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
