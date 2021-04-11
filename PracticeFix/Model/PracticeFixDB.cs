@@ -20,6 +20,9 @@ namespace PracticeFix.Model
         {
             //get all practiceFix.
             return db.Table<PracticeFix>().ToListAsync();
+
+            /*第二種寫法 GetPracticeFixNotDoneAsync*/
+            //return db.QueryAsync<PracticeFix>("select * from [PracticeFix] where [Id] = 0");
         }
 
         public Task<int> SavePracticeFixAsync(PracticeFix practiceFix)

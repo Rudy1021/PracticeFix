@@ -7,6 +7,7 @@ using SQLitePCL;
 
 namespace PracticeFix.Model
 {
+    [Table("FAB-1")]
     public class PracticeFix
     {
         [PrimaryKey,AutoIncrement]
