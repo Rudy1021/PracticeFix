@@ -3,46 +3,50 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using System.IO;//建立file功能
 using PracticeFix;
 
 namespace PracticeFix.Model
 {
     public class PracticeFixDB
     {
-        readonly SQLiteAsyncConnection db;
+        static SQLiteAsyncConnection practiceFixDataBase;//定義dataBase資料庫
+
         public PracticeFixDB(string dbpath)
         {
-            db = new SQLiteAsyncConnection(dbpath);
-            db.CreateTableAsync<PracticeFix>().Wait();
+            //dbpath = Path.Combine(FileSystem.)
+            practiceFixDataBase = new SQLiteAsyncConnection(dbpath);
+            practiceFixDataBase.CreateTableAsync<FAB1> ().Wait();
         }
 
-        public Task<List<PracticeFix>> GetPracticeFixAsync()
+        
+        public Task<List<FAB1>> GetPracticeFixAsync()
         {
-            //get all practiceFix.
-            return db.Table<PracticeFix>().ToListAsync();
+            //get all FAB1.
+            return practiceFixDataBase.Table<FAB1>().ToListAsync();
 
             /*第二種寫法 GetPracticeFixNotDoneAsync*/
-            //return db.QueryAsync<PracticeFix>("select * from [PracticeFix] where [Id] = 0");
+            //return practiceFixDataBase.QueryAsync<PracticeFix>("select * from [PracticeFix] where [Id] = 0");
         }
 
-        public Task<int> SavePracticeFixAsync(PracticeFix practiceFix)
+        public Task<int> SavePracticeFixAsync(FAB1 practiceFix)
         {
             if (practiceFix.Item_Id != 0)
             {
-                //update existing practicefix
-                return db.UpdateAsync(practiceFix);
+                //update existing FAB1
+                return practiceFixDataBase.UpdateAsync(practiceFix);
             }
             else
             {
-                //save a new practicedix
-                return db.UpdateAsync(practiceFix);
+                //save a new FAB1
+                return practiceFixDataBase.UpdateAsync(practiceFix);
             }
         }
 
-        public Task<int> DeletePracticeFixAsync(PracticeFix practiceFix)
+        public Task<int> DeletePracticeFixAsync(FAB1 practiceFix)
         {
-            //delete existing practicefix
-            return db.DeleteAsync(practiceFix);
+            //delete existing FAB1
+            return practiceFixDataBase.DeleteAsync(practiceFix);
         }
     }
 }
